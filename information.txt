@@ -1,0 +1,4 @@
+There are two configs: 
+1. yaml config for kubernetes itself
+2. dockerfile for every pod
+
