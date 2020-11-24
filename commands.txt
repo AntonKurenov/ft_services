@@ -44,3 +44,9 @@ To get inside pod run:
 kubectl exec --stdin --tty <POD_NAME> --/bin/sh
 if two or more pods are present:
 kubectl exec -i -t my-pod --container main-app -- /bin/bash
+
+# Show list of addons in minikube
+minikube addons list
+
+# Enable disabled addon
+minikube addons enable <name_of_addon>
