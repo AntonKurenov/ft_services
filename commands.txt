@@ -12,6 +12,9 @@ kubectl get deploy
 2. minikube delete
 3. kubectl get svc
 
+For delete deploy and service:
+kubectl delete -f config.yaml
+
 For create pods:
 kubectl apply -f config.yaml
 

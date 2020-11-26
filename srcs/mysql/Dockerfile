@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 RUN apk update && apk upgrade && \
-	apk add nginx vim 
+	apk add nginx vim curl
 
 RUN mkdir -p /run/nginx
 
