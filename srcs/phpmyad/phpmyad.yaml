@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: phpmyad-svc
+spec:
+  selector:
+    app: phpmyad
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      name: phpmyad
+      port: 5000
+      targetPort: 5000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phpmyad-deploy
+  labels:
+    app: phpmyad
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: phpmyad
+  template:
+    metadata:
+      labels:
+        app: phpmyad
+    spec:
+      containers:
+      - name: phpmyad
+        image: phpmyad_image
+        imagePullPolicy: Never
+        ports:
+          - containerPort: 5000

@@ -11,10 +11,10 @@ spec:
       name: wordpress
       port: 5050 
       targetPort: 5050
-    - protocol: TCP
-      name: nginx
-      port: 80
-      targetPort: 80
+    # - protocol: TCP
+    #   name: nginx
+    #   port: 80
+    #   targetPort: 80
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -38,4 +38,4 @@ spec:
         imagePullPolicy: Never
         ports:
           - containerPort: 5050
-          - containerPort: 80
+          # - containerPort: 80

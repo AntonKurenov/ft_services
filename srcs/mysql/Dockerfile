@@ -1,8 +1,17 @@
 FROM alpine:latest
 
 RUN apk update && apk upgrade && \
-	apk add nginx vim curl
+	apk add mariadb mariadb-common mariadb-client\
+	openrc vim 
 
-RUN mkdir -p /run/nginx
+VOLUME [ "/var/lib/mysql" ]
 
-CMD ["nginx", "-g", "daemon off;"]
+WORKDIR /tmp
+
+COPY ./srcs/mysql_start.sh .
+COPY ./srcs/my.cnf /etc/mysql/
+
+RUN chmod 600 /etc/mysql/my.cnf
+RUN chmod +x mysql_start.sh
+
+CMD [ "./mysql_start.sh" ] 

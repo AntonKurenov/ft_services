@@ -1,6 +1,9 @@
 build:
-	docker build -t nginx_test .
+	docker build -t nginx_image .
 
+apply:
+	kubectl apply -f nginx.yaml
+	
 run:
 	docker run -p 80:80 -p 443:443 -p 21:21 -d --name nginx nginx_test
 
