@@ -15,5 +15,6 @@ COPY ./srcs/phpMyAdmin-5.0.4-all-languages.tar.gz .
 COPY ./srcs/nginx.conf /etc/nginx/
 RUN tar -xzf phpMyAdmin-5.0.4-all-languages.tar.gz
 RUN mv ./phpMyAdmin-5.0.4-all-languages /var/www/
+COPY ./srcs/config.inc.php /var/www/phpMyAdmin-5.0.4-all-languages/
 
 CMD [ "/usr/bin/supervisord", "-c", "/etc/supervisor.conf" ]

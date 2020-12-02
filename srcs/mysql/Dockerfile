@@ -10,6 +10,8 @@ WORKDIR /tmp
 
 COPY ./srcs/mysql_start.sh .
 COPY ./srcs/my.cnf /etc/mysql/
+COPY ./srcs/init_db.sql .
+COPY ./srcs/wordpress.sql .
 
 RUN chmod 600 /etc/mysql/my.cnf
 RUN chmod +x mysql_start.sh
