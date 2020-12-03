@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 RUN apk update && apk upgrade
-RUN	apk add nginx openssl openssh supervisor
+RUN	apk add nginx openssl openssh supervisor vim
 
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 			-subj '/C=RU/ST=RT/L=Kazan/O=21_school/CN=elovegoo' \
@@ -10,11 +10,13 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 
 RUN mkdir -p /run/nginx
 
-COPY ./default /etc/nginx/conf.d/default.conf
+WORKDIR /tmp
+
+COPY ./nginx.conf /etc/nginx/nginx.conf
 COPY ./supervisor.conf /etc/supervisord.conf
-COPY ./start_server.sh ./start_server.sh
+COPY ./start_server.sh .
 RUN chmod +x ./start_server.sh
 
-EXPOSE 80 443
+EXPOSE 80 443 22
 
 CMD [ "./start_server.sh" ]

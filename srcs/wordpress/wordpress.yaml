@@ -6,15 +6,12 @@ spec:
   selector:
     app: wordpress
   type: LoadBalancer
+   loadBalancerIP: 192.168.99.102
   ports:
     - protocol: TCP
       name: wordpress
       port: 5050 
       targetPort: 5050
-    # - protocol: TCP
-    #   name: nginx
-    #   port: 80
-    #   targetPort: 80
 ---
 apiVersion: apps/v1
 kind: Deployment

@@ -4,6 +4,9 @@ build:
 apply:
 	kubectl apply -f nginx.yaml
 	
+delete:
+	kubectl delete -f nginx.yaml
+
 run:
 	docker run -p 80:80 -p 443:443 -p 21:21 -d --name nginx nginx_test
 

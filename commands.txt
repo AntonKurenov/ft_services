@@ -53,3 +53,11 @@ minikube addons list
 
 # Enable disabled addon
 minikube addons enable <name_of_addon>
+
+commands for nginx:
+nginx -s reload -- for reload
+nginx -s <signal> 
+
+start ssh:
+ssh <name_of_user>@IP
+password

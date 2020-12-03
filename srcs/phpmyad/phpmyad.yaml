@@ -6,6 +6,7 @@ spec:
   selector:
     app: phpmyad
   type: LoadBalancer
+  loadBalancerIP: 192.168.99.101
   ports:
     - protocol: TCP
       name: phpmyad
