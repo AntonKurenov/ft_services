@@ -12,10 +12,13 @@ RUN mkdir -p /run/nginx
 
 WORKDIR /tmp
 
-COPY ./nginx.conf /etc/nginx/nginx.conf
-COPY ./supervisor.conf /etc/supervisord.conf
-COPY ./start_server.sh .
+COPY ./srcs/nginx.conf /etc/nginx/nginx.conf
+COPY ./srcs/supervisor.conf /etc/supervisord.conf
+COPY ./srcs/start_server.sh .
+COPY ./srcs/index.html /var/www/
+
 RUN chmod +x ./start_server.sh
+RUN rm -rf /etc/ssh/ssh_host_rsa_key /etc/ssh/ssh_host_dsa_key
 
 EXPOSE 80 443 22
 

@@ -14,9 +14,8 @@ COPY ./srcs/nginx.conf /etc/nginx/
 
 RUN tar -xzf latest.tar.gz
 RUN mv ./wordpress /var/www/
+COPY ./srcs/wp-config.php /var/www/wordpress/
 
 EXPOSE 5050
 
 CMD [ "/usr/bin/supervisord", "-c", "/etc/supervisor.conf" ]
-# CMD ["nginx", "-g", "daemon off;"]
-#CMD [ "/bin/sh" ]
