@@ -17,4 +17,8 @@ RUN tar -xzf phpMyAdmin-5.0.4-all-languages.tar.gz
 RUN mv ./phpMyAdmin-5.0.4-all-languages /var/www/
 COPY ./srcs/config.inc.php /var/www/phpMyAdmin-5.0.4-all-languages/
 
+RUN mkdir /var/www/phpMyAdmin-5.0.4-all-languages/tmp
+RUN chmod 777 /var/www/phpMyAdmin-5.0.4-all-languages/tmp
+
+
 CMD [ "/usr/bin/supervisord", "-c", "/etc/supervisor.conf" ]

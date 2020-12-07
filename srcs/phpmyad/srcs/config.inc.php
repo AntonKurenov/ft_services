@@ -65,6 +65,9 @@ $cfg['Servers'][$i]['AllowNoPassword'] = false;
 // $cfg['Servers'][$i]['designer_settings'] = 'pma__designer_settings';
 // $cfg['Servers'][$i]['export_templates'] = 'pma__export_templates';
 
+// Fix for tempdir issue
+$cfg['TempDir'] = 'tmp';
+
 /**
  * End of servers configuration
  */
