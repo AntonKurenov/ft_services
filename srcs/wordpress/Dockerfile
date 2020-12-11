@@ -18,4 +18,4 @@ COPY ./srcs/wp-config.php /var/www/wordpress/
 
 EXPOSE 5050
 
-CMD [ "/usr/bin/supervisord", "-c", "/etc/supervisor.conf" ]
+ENTRYPOINT [ "/usr/bin/supervisord", "-c", "/etc/supervisor.conf" ]

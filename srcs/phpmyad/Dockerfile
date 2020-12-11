@@ -20,5 +20,4 @@ COPY ./srcs/config.inc.php /var/www/phpMyAdmin-5.0.4-all-languages/
 RUN mkdir /var/www/phpMyAdmin-5.0.4-all-languages/tmp
 RUN chmod 777 /var/www/phpMyAdmin-5.0.4-all-languages/tmp
 
-
-CMD [ "/usr/bin/supervisord", "-c", "/etc/supervisor.conf" ]
+ENTRYPOINT [ "/usr/bin/supervisord", "-c", "/etc/supervisor.conf" ]

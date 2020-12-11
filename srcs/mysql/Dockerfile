@@ -16,4 +16,4 @@ COPY ./srcs/wordpress.sql .
 RUN chmod 600 /etc/mysql/my.cnf
 RUN chmod +x mysql_start.sh
 
-CMD [ "./mysql_start.sh" ] 
+ENTRYPOINT [ "./mysql_start.sh" ] 

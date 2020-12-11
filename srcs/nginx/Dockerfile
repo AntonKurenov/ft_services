@@ -22,4 +22,4 @@ RUN rm -rf /etc/ssh/ssh_host_rsa_key /etc/ssh/ssh_host_dsa_key
 
 EXPOSE 80 443 22
 
-CMD [ "./start_server.sh" ]
+ENTRYPOINT [ "./start_server.sh" ]
