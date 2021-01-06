@@ -28,11 +28,11 @@ RUN ./usr/bin/telegraf -sample-config --input-filter docker \
 # COPY ./srcs/telegraf.conf etc/telegraf/telegraf.conf
 
 
-COPY ./srcs/supervisor.conf /etc/supervisor.conf
+COPY ./srcs/supervisord.conf /etc/supervisord.conf
 
 VOLUME [ "/var/lib/influxdb" ]
 
 EXPOSE 8086
 
-ENTRYPOINT [ "/usr/bin/supervisord", "-c", "/etc/supervisor.conf" ]
+ENTRYPOINT [ "/usr/bin/supervisord", "-c", "/etc/supervisord.conf" ]
 # CMD [ "/bin/sh" ]

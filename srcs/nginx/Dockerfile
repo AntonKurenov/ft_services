@@ -17,7 +17,7 @@ COPY ./srcs/supervisor.conf /etc/supervisord.conf
 COPY ./srcs/start_server.sh .
 COPY ./srcs/index.html /var/www/
 
-RUN chmod +x ./start_server.sh
+RUN chmod +x start_server.sh
 RUN rm -rf /etc/ssh/ssh_host_rsa_key /etc/ssh/ssh_host_dsa_key
 
 EXPOSE 80 443 22

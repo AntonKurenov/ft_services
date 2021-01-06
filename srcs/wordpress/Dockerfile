@@ -8,7 +8,7 @@ RUN mkdir -p /run/nginx
 
 WORKDIR /tmp
 
-COPY ./srcs/supervisor.conf /etc/
+COPY ./srcs/supervisord.conf /etc/
 COPY ./srcs/latest.tar.gz .
 COPY ./srcs/nginx.conf /etc/nginx/
 
@@ -18,4 +18,4 @@ COPY ./srcs/wp-config.php /var/www/wordpress/
 
 EXPOSE 5050
 
-ENTRYPOINT [ "/usr/bin/supervisord", "-c", "/etc/supervisor.conf" ]
+ENTRYPOINT [ "/usr/bin/supervisord", "-c", "/etc/supervisord.conf" ]

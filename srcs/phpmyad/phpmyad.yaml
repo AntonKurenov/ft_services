@@ -1,40 +1,40 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: phpmyad
+  name: phpmyadmin
   annotations:
     metallb.universe.tf/allow-shared-ip: shared
   labels:
-    app: phpmyad
+    app: phpmyadmin
 spec:
   selector:
-    app: phpmyad
+    app: phpmyadmin
   type: LoadBalancer
   loadBalancerIP: 192.168.99.101
   ports:
     - protocol: TCP
-      name: phpmyad
+      name: phpmyadmin
       port: 5000
       targetPort: 5000
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: phpmyad
+  name: phpmyadmin
   labels:
-    app: phpmyad
+    app: phpmyadmin
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: phpmyad
+      app: phpmyadmin
   template:
     metadata:
       labels:
-        app: phpmyad
+        app: phpmyadmin
     spec:
       containers:
-      - name: phpmyad
+      - name: phpmyadmin
         image: phpmyad_image
         imagePullPolicy: Never
         ports:

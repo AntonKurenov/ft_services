@@ -8,16 +8,13 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -subj \
 			-keyout /etc/ssl/private/vsftpd.key \
 			-out /etc/ssl/certs/vsftpd.crt
 			
-RUN adduser -D elovegoo
-RUN echo 'elovegoo:admin' | chpasswd
-
-# WORKDIR /tmp
+RUN echo 'root:root' | chpasswd
 
 COPY ./srcs/vsftpd.conf /etc/vsftpd/
+COPY ./srcs/start.sh .
 
-# RUN ./setup.sh
+RUN chmod +x start.sh
 
-EXPOSE 20 21 30000
+EXPOSE 20 21 
 
-# vsftpd /etc/vsftpd/vsftpd.conf
-ENTRYPOINT ["vsftpd", "/etc/vsftpd/vsftpd.conf"]
+ENTRYPOINT [ "./start.sh" ]
