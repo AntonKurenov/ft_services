@@ -1,2 +1,0 @@
-persistent volume is a space 
-persistent volume claim is a request for storage from pod
